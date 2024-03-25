@@ -1,11 +1,14 @@
-#include"dependencies.h"
+#include"dependencies_and_declarations.h"
 
-void main(){
+int main(){
 
 	sort();
+	//Initial call to sort the 
 	load_file();
 	choice_taker(1);
+	return 0;
 }
+
 
 
 //LOADS THE FILE INTO GLOBAL STORAGE VARIABLE
@@ -128,7 +131,8 @@ void delete_from_file(){
 		i++;
 	}
 	clear_array(i);
-	sort();	
+	sort();
+
 	fclose(mainFile);//always close a file before returning a function/
 	system("clear");
 	printf("\tWould you like to continue(Y/N)?\n");
@@ -207,11 +211,13 @@ void sort(){
 		j=i+1;
 	}
 	i=0;
+
+	//sorts the global storage variable
 	while(strlen(storage[i])>0){
 		fprintf(main_file,"%s",storage[i]);
 		i++;
 	}
-//LOAD THE NEW SORTED VALUES
+//LOADS THE NEW SORTED VALUES
 	load_file();	
 	fclose(main_file);
 	return;
@@ -228,7 +234,7 @@ void clear_all(){
 	
 	while(i<=MAX_SIZE){
 		strcpy(storage[i],"");i++;
-	}
+	} //EMPTIES THE STORAGE GLOBAL ARRAY OF STRINGS
 
 	printf("\t\tWould you like to continue(Y/N)?\n");
 	scanf(" %c",&deciding);
